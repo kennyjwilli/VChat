@@ -1,0 +1,11 @@
+name: VChat
+main: net.vectorgaming.vchat.VChat
+version: 0.1
+author: Kenny Williams
+website: http://vectorgaming.net
+description: A channel based chat plugin
+
+depend: [VCore, ZoneCore, ZoneWorld]
+
+commands:
+  
