@@ -19,12 +19,13 @@ public class ChannelCommand extends VCommand
         super("channel", VChatAPI.getPlugin());
         addSubCommand(new ChannelJoin());
         addSubCommand(new ChannelCreate());
+        this.addAlias("ch");
     }
 
     @Override
     public void run(CommandSender cs, String[] args)
     {
-        cs.sendMessage(VCoreAPI.getColorScheme().getTitleBar("VCore Help"));
+        cs.sendMessage(VCoreAPI.getColorScheme().getTitleBar("VChat Help"));
         cs.sendMessage(ChatColor.GREEN+"Type "+VCoreAPI.getColorScheme().getArgumentColor()+"/ch help "+ChatColor.GREEN+" for a list of commands.");
     
         //joining of channels without args below
