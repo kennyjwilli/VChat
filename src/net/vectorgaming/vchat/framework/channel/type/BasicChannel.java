@@ -24,7 +24,7 @@ public class BasicChannel extends SLChannel
         {
             for(Player p : getPlayers())
             {
-                p.sendMessage(this.getChatParser().replaceAll(message));
+                p.sendMessage(this.getChatParser().replaceAll(getFormat()));
             }
         }else
         {
@@ -32,7 +32,7 @@ public class BasicChannel extends SLChannel
             {
                 if(getWorlds().contains(p.getWorld()))
                 {
-                    p.sendMessage(this.getChatParser().replaceAll(message));
+                    p.sendMessage(this.getChatParser().replaceAll(getFormat()));
                 }
             }
         }
