@@ -1,14 +1,14 @@
 
 package net.vectorgaming.vchat.framework.channel.type;
 
-import net.vectorgaming.vchat.framework.channel.Channel;
+import net.vectorgaming.vchat.framework.channel.SLChannel;
 import org.bukkit.entity.Player;
 
 /**
  *
  * @author Kenny
  */
-public class BasicChannel extends Channel
+public class BasicChannel extends SLChannel
 {
     public BasicChannel(String name) 
     {
