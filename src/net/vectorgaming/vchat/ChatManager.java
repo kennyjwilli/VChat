@@ -15,6 +15,7 @@ public class ChatManager
     private static HashMap<String, Channel> channels = new HashMap<>();
     private static HashMap<Player, Channel> focusedChannel = new HashMap<>();
     private static HashMap<Player, ArrayList<Channel>> joinedChannels = new HashMap<>();
+    private static String defaultChannel = VChatAPI.getPlugin().getConfig().getString("default-channel");
     
     /**
      * Gets a channel from the specified name
@@ -61,7 +62,10 @@ public class ChatManager
      * @param p Player to set focused channel
      * @param channel Channel to be focused on
      */
-    public static void focusChannel(Player p, Channel channel) {focusChannel(p, channel.getName());}
+    public static void focusChannel(Player p, Channel channel) 
+    {
+        focusChannel(p, channel.getName());
+    }
     
     /**
      * Gets the focused channel for the player
@@ -71,6 +75,24 @@ public class ChatManager
     public static Channel getFocusedChannel(Player p)
     {
         return focusedChannel.get(p);
+    }
+    
+    /**
+     * Returns the default channel that the plugin should focus a player on when it is 
+     * given no other instructions on where to focus the player to
+     * @return Default channel to foucs
+     */
+    public static Channel getDefaultFocusChannel()
+    {
+        if(!channelExists(defaultChannel))
+        {
+            if(getChannels().isEmpty())
+            {
+                return null;
+            }
+            return getChannels().get(0);
+        }
+        return getChannel(defaultChannel);
     }
     
     /**
