@@ -37,5 +37,9 @@ public class PlayerJoinListener implements Listener
             }
             //possibly add joining of temp channels?
         }
+        if(ChatManager.getDefaultFocusChannel() != null)
+        {
+            ChatManager.focusChannel(p, ChatManager.getDefaultFocusChannel());
+        }
     }
 }
