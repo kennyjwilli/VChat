@@ -23,6 +23,7 @@ public class VChat extends VertexPlugin
     public void onEnable()
     {
         api = new VChatAPI(this);
+        this.saveDefaultConfig();
         setupCommands();
         setupListeners();
         registerChannels();
