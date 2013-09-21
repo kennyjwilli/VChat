@@ -33,10 +33,13 @@ public class ChatManager
      * NOTE: The channel type should be all caps and spaces should be replaced with
      * underscores.
      * Ensure all channel types have been registered with a ChannelCreator in VChatAPI
+     * @return The channel that was created
      */
-    public static void createChannel(String name, String type)
+    public static Channel createChannel(String name, String type)
     {
-        channels.put(name.toLowerCase(), VChatAPI.getChannelCreator(type.toUpperCase()).createChannel(name));
+        Channel channel = VChatAPI.getChannelCreator(type.toUpperCase()).createChannel(name);
+        channels.put(name.toLowerCase(), channel);
+        return channel;
     }
     
     /**
