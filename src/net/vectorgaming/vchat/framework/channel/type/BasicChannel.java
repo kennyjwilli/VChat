@@ -12,7 +12,7 @@ public class BasicChannel extends SLChannel
 {
     public BasicChannel(String name) 
     {
-        super(name);
+        super(name, "BASIC_CHANNEL");
     }
     
     @Override
