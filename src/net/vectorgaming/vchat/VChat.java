@@ -3,6 +3,7 @@ package net.vectorgaming.vchat;
 import net.vectorgaming.vchat.commands.user.ChannelCommand;
 import net.vectorgaming.vchat.framework.channel.type.BasicChannelCreator;
 import net.vectorgaming.vchat.listeners.ChatListener;
+import net.vectorgaming.vchat.util.SLAPI;
 import net.vectorgaming.vcore.framework.VertexAPI;
 import net.vectorgaming.vcore.framework.VertexPlugin;
 import net.vectorgaming.vcore.framework.commands.CommandManager;
@@ -25,12 +26,15 @@ public class VChat extends VertexPlugin
         setupCommands();
         setupListeners();
         registerChannels();
+        SLAPI.loadAllChannels();
+        SLAPI.saveJoinedChannels();
     }
 
     @Override
     public void onDisable()
     {
-        
+        SLAPI.saveAllChannels();
+        SLAPI.saveJoinedChannels();
     }
 
     @Override
