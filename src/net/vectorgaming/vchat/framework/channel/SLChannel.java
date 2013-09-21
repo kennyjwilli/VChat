@@ -23,9 +23,9 @@ public abstract class SLChannel extends Channel
     private ZoneConfig config;
     private ZoneConfig playersConfig;
     
-    public SLChannel(String name) 
+    public SLChannel(String name, String type) 
     {
-        super(name);
+        super(name, type);
         config = new ZoneConfig(VChatAPI.getPlugin().getPlugin(), new File(ChatDirectory.CHANNELS+File.separator+name+File.separator+"config.yml"));
         playersConfig = new ZoneConfig(VChatAPI.getPlugin(), new File(ChatDirectory.CHANNELS+File.separator+name+File.separator+"players.yml"));
     }
