@@ -81,6 +81,7 @@ public abstract class SLChannel extends Channel
         config.set("verbose", isVerbose());
         config.set("forcejoin", isForceJoin());
         config.set("worlds", getWorlds());
+        config.save();
     }
     
     /**
@@ -89,6 +90,7 @@ public abstract class SLChannel extends Channel
     public void savePlayers()
     {
         playersConfig.set("players", getPlayerNames());
+        playersConfig.save();
     }
     
     /**
