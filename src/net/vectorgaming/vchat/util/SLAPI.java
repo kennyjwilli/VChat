@@ -50,6 +50,12 @@ public class SLAPI
      */
     public static void loadAllChannels()
     {
+        File directory = new File(ChatDirectory.CHANNELS);
+        if(!directory.exists())
+        {
+            return;
+        }
+        
         for(File f : new File(ChatDirectory.CHANNELS).listFiles())
         {
             ZoneConfig config = new ZoneConfig(VChatAPI.getPlugin(), f);
