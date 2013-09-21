@@ -31,14 +31,14 @@ public abstract class Channel
     private ChatParser chatParser = new ChatParser();
     
     
-    public Channel(String name)
+    public Channel(String name, String type)
     {
         this.name = name;
         this.nick = name.substring(0, 1).toUpperCase();
         this.format = "{default}";
         this.password = "";
         this.color = "&f";
-        this.type = "temp";
+        this.type = type;
         this.distance = 0;
         this.forcejoin = false;
         this.verbose = true;
