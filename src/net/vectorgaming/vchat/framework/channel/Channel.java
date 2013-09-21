@@ -105,112 +105,166 @@ public abstract class Channel
      * the first letter of the channel name capitalized. 
      * @return Nickname of the channel
      */
-    public String getNick() {return nick;}
+    public String getNick() 
+    {
+        return nick;
+    }
     
     /**
      * Sets the nickname for the channel
      * @param nick Channel nickname
      */
-    public void setNick(String nick) {this.nick = nick;}
+    public void setNick(String nick) 
+    {
+        this.nick = nick;
+    }
     
     /**
      * Gets the format for the channel. 
      * @return The channel format
      */
-    public String getFormat() {return format;}
+    public String getFormat() 
+    {
+        return format;
+    }
     
     /**
      * Sets the format for the channel
      * @param format Format for the channel
      */
-    public void setFormat(String format) {this.format = format;}
+    public void setFormat(String format) 
+    {
+        this.format = format;
+    }
     
     /**
      * Gets the password for the channel. This password is stored as a String.
      * @return The channel password
      */
-    public String getPassword() {return password;}
+    public String getPassword() 
+    {
+        return password;
+    }
     
     /**
      * Sets the password for the channel
      * @param password Channel password
      */
-    public void setPassword(String password){this.password = password;}
+    public void setPassword(String password)
+    {
+        this.password = password;
+    }
     
     /**
      * Gets the color of the channel
      * @return Color of the channel
      */
-    public String getColor() {return color;}
+    public String getColor() 
+    {
+        return color;
+    }
     
     /**
      * Sets the color of the channel
      * @param color Color of the channel
      */
-    public void setColor(String color) {this.color = color;}
+    public void setColor(String color) 
+    {
+        this.color = color;
+    }
     
     /**
      * Gets the type of the channel. This should be all CAPS and spaces should be underscores.
      * @return The type of the channel
      */
-    public String getType() {return type;}
+    public String getType() 
+    {
+        return type;
+    }
     
     /**
      * Sets the type of the channel
      * @param type Type of the channel
      */
-    public void setType(String type) {this.type = type;}
+    public void setType(String type) 
+    {
+        this.type = type;
+    }
     
     /**
      * Gets the radius of a circle a player must be inside in order to receive the chat
      * message
      * @return The radius distance of a circle
      */
-    public int getDistance() {return distance;}
+    public int getDistance() 
+    {
+        return distance;
+    }
     
     /**
      * Sets the radius of a circle a player must be inside in order to receive the chat
      * @param radius The radius distance of a circle
      */
-    public void setDistance(int radius){distance = radius;}
+    public void setDistance(int radius)
+    {
+        distance = radius;
+    }
     
     /**
      * Checks to see if the channel should force a player to join it when he/she joins the
      * server
      * @return TRUE if it will force-join the player. FALSE if not.
      */
-    public boolean isForceJoin() {return forcejoin;}
+    public boolean isForceJoin() 
+    {
+        return forcejoin;
+    }
     
     /**
      * Sets the channel to force a player to join a channel when he/she joins the server
      * @param value TRUE if it will force-join the player. FALSE if not.
      */
-    public void setForceJoin(boolean value) {forcejoin = value;}
+    public void setForceJoin(boolean value) 
+    {
+        forcejoin = value;
+    }
     
     /**
      * Checks to see if the channel should be logged to the console
      * @return TRUE if will log. FALSE if not.
      */
-    public boolean isVerbose() {return verbose;}
+    public boolean isVerbose() 
+    {
+        return verbose;
+    }
     
     /**
      * Sets if the channel should be logged to the console
      * @param value TRUE if will log. FALSE if not.
      */
-    public void setVerbose(boolean value) {verbose = value;}
+    public void setVerbose(boolean value) 
+    {
+        verbose = value;
+    }
     
     /**
      * Gets a list of worlds to limit the channel to. If the list is empty the channel will
      * broadcast to every world
      * @return List of worlds
      */
-    public List<World> getWorlds() {return worlds;}
+    public List<World> getWorlds() 
+    {
+        return worlds;
+    }
     
     /**
      * Sets the worlds the channel will broadcast in
      * @param worlds List of worlds
      */
-    public void setWorlds(List<World> worlds) {this.worlds = worlds;}
+    public void setWorlds(List<World> worlds) 
+    {
+        this.worlds = worlds;
+    }
     
     /**
      * Adds a world to the list of worlds that the channel will broadcast in
@@ -248,7 +302,10 @@ public abstract class Channel
      * NOTE: The replace Strings will reset everytime the parser replaces all the Strings
      * @return The chat parser for the channel
      */
-    public ChatParser getChatParser() {return chatParser;}
+    public ChatParser getChatParser() 
+    {
+        return chatParser;
+    }
     
     private void setupParsing(Player p, String message)
     {
