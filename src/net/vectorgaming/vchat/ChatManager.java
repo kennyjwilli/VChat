@@ -21,7 +21,10 @@ public class ChatManager
      * @param name Name of the channel
      * @return Channel object
      */
-    public static Channel getChannel(String name) {return channels.get(name);}
+    public static Channel getChannel(String name) 
+    {
+        return channels.get(name.toLowerCase());
+    }
     
     /**
      * Creates a channel
@@ -33,7 +36,7 @@ public class ChatManager
      */
     public static void createChannel(String name, String type)
     {
-        channels.put(type.toUpperCase(), VChatAPI.getChannelCreator(type.toUpperCase()).createChannel(name));
+        channels.put(name.toLowerCase(), VChatAPI.getChannelCreator(type.toUpperCase()).createChannel(name));
     }
     
     /**
@@ -44,7 +47,9 @@ public class ChatManager
     public static void focusChannel(Player p, String channel)
     {
         if(!isJoined(p, channel.toLowerCase()))
+        {
             joinChannel(p, channel.toLowerCase());
+        }
         focusedChannel.put(p, getChannel(channel.toLowerCase()));
     }
     
@@ -119,7 +124,10 @@ public class ChatManager
      * @param p Player to leave the channel
      * @param channel Channel being left
      */
-    public static void leaveChannel(Player p, Channel channel) {leaveChannel(p, channel);}
+    public static void leaveChannel(Player p, Channel channel) 
+    {
+        leaveChannel(p, channel);
+    }
     
     /**
      * Gets a list of channels that the player is joined to
