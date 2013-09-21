@@ -1,0 +1,4 @@
+format:
+  default: '&0[%color%%nick%&0]%faction%&0[%suffix%%prefix%&0][%suffix%%displayname%&0]%color%'
+  parse-faction: '[&f%ftag%&0]'
+log-chat: true
