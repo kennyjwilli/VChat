@@ -26,7 +26,7 @@ public class ChannelCommand extends VCommand
     public void run(CommandSender cs, String[] args)
     {
         cs.sendMessage(VCoreAPI.getColorScheme().getTitleBar("VChat Help"));
-        cs.sendMessage(ChatColor.GREEN+"Type "+VCoreAPI.getColorScheme().getArgumentColor()+"/ch help "+ChatColor.GREEN+" for a list of commands.");
+        cs.sendMessage(ChatColor.GREEN+"Type "+VCoreAPI.getColorScheme().getArgumentColor()+"/ch help "+ChatColor.GREEN+"for a list of commands.");
     
         //joining of channels without args below
     }
