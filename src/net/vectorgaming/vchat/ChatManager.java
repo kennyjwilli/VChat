@@ -151,7 +151,7 @@ public class ChatManager
      */
     public static void leaveChannel(Player p, Channel channel) 
     {
-        leaveChannel(p, channel);
+        leaveChannel(p, channel.getName());
     }
     
     /**
