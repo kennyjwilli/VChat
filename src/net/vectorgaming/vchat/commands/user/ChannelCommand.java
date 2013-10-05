@@ -19,6 +19,7 @@ public class ChannelCommand extends VCommand
         super("channel", VChatAPI.getPlugin());
         addSubCommand(new ChannelJoin());
         addSubCommand(new ChannelCreate());
+        addSubCommand(new ChannelLeave());
         this.addAlias("ch");
     }
 
