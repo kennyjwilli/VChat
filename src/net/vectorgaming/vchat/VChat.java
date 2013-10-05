@@ -4,6 +4,7 @@ import net.vectorgaming.vchat.commands.user.ChannelCommand;
 import net.vectorgaming.vchat.framework.channel.type.BasicChannelCreator;
 import net.vectorgaming.vchat.listeners.ChatListener;
 import net.vectorgaming.vchat.listeners.PlayerJoinListener;
+import net.vectorgaming.vchat.listeners.PlayerQuitListener;
 import net.vectorgaming.vchat.util.SLAPI;
 import net.vectorgaming.vcore.framework.VertexAPI;
 import net.vectorgaming.vcore.framework.VertexPlugin;
@@ -66,6 +67,9 @@ public class VChat extends VertexPlugin
         
         PlayerJoinListener joinListener = new PlayerJoinListener();
         pm.registerEvents(joinListener, this);
+        
+        PlayerQuitListener quitListener = new PlayerQuitListener();
+        pm.registerEvents(quitListener, this);
     }
     
     private void registerChannels()
