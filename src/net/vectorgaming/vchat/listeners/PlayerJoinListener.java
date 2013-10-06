@@ -23,7 +23,7 @@ public class PlayerJoinListener implements Listener
         {
             if(ch.isForceJoin())
             {
-                ChatManager.joinChannel(p, ch);
+                ChatManager.focusChannel(p, ch);
             }else
             {
                 if(ch instanceof SLChannel)
@@ -31,15 +31,11 @@ public class PlayerJoinListener implements Listener
                     SLChannel sl = (SLChannel) ch;
                     if(sl.getAllPlayers().contains(p.getName()))
                     {
-                        ChatManager.joinChannel(p, ch);
+                        ChatManager.focusChannel(p, ch);
                     }
                 }
             }
             //possibly add joining of temp channels?
-        }
-        if(ChatManager.getDefaultFocusChannel() != null)
-        {
-            ChatManager.focusChannel(p, ChatManager.getDefaultFocusChannel());
         }
     }
 }
