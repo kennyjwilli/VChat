@@ -36,7 +36,7 @@ public class Settings
     {
         defaultFormat = format;
     }
-        
+    
     /**
      * Checks to see if the plugin should log the chat into a separate chat log
      * @return TRUE if loging is enabled, FALSE if not
