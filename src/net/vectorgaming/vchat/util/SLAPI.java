@@ -4,10 +4,12 @@ package net.vectorgaming.vchat.util;
 import info.jeppes.ZoneCore.ZoneConfig;
 import java.io.File;
 import net.vectorgaming.vchat.ChatManager;
+import net.vectorgaming.vchat.Settings;
 import net.vectorgaming.vchat.VChatAPI;
 import net.vectorgaming.vchat.framework.channel.SLChannel;
 import net.vectorgaming.vchat.framework.channel.Channel;
 import net.vectorgaming.vchat.framework.enums.ChatDirectory;
+import org.bukkit.plugin.Plugin;
 
 /**
  *
@@ -78,5 +80,30 @@ public class SLAPI
                 sl.loadPlayers();
             }
         }
+    }
+    
+    /**
+     * Loads all the settings that are set in the config.yml 
+     */
+    public static void loadDefaultConfig()
+    {
+        Plugin plugin = VChatAPI.getPlugin();
+        plugin.reloadConfig();
+        
+        Settings.setDefaultFormat(plugin.getConfig().getString("format.default"));
+        Settings.setLogChat(plugin.getConfig().getBoolean("log-chat"));
+    }
+    
+    /**
+     * Reloads the plugin from all config settings. 
+     */
+    public static void reloadSettings()
+    {
+        saveJoinedChannels();
+        ChatManager.resetChannels();
+        loadDefaultConfig();
+        loadAllChannels();
+        loadJoinedChannels();
+        loadDefaultConfig();
     }
 }
