@@ -47,6 +47,19 @@ public abstract class SLChannel extends Channel
     }
     
     /**
+     * Temporarily removes a player from a channel. This will make it so the player does not
+     * receive chat messages, however, when he or she logs back in they will be joined to the channel
+     * again. To permanently remove a player use removePlayer(Player p).
+     * 
+     * This method is primarily used for when a player quits the game
+     * @param p Name of the player
+     */
+    public void removePlayerTemp(Player p)
+    {
+        super.removePlayer(p);
+    }
+    
+    /**
      * Gets a list of ALL the players who have joined the channel. This list WILL contain
      * offline players. This is primarily used for saving and loading players into the channel.
      * @return A list of all players who joined the channel
