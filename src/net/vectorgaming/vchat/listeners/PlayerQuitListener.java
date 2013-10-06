@@ -3,6 +3,7 @@ package net.vectorgaming.vchat.listeners;
 
 import net.vectorgaming.vchat.ChatManager;
 import net.vectorgaming.vchat.framework.channel.Channel;
+import net.vectorgaming.vchat.framework.channel.SLChannel;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -21,7 +22,14 @@ public class PlayerQuitListener implements Listener
         
         for(Channel c : ChatManager.getJoinedChannels(p))
         {
-            ChatManager.leaveChannel(p, c);
+            if(c instanceof SLChannel)
+            {
+                SLChannel ch = (SLChannel) c;
+                ch.removePlayerTemp(p);
+            }else
+            {
+                ChatManager.leaveChannel(p, c, false);
+            }
         }
     }
     
