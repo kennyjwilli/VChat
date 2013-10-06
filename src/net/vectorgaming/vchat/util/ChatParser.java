@@ -2,7 +2,7 @@
 package net.vectorgaming.vchat.util;
 
 import java.util.HashMap;
-import net.vectorgaming.vchat.VChatAPI;
+import net.vectorgaming.vchat.Settings;
 import org.bukkit.ChatColor;
 
 /**
@@ -22,7 +22,7 @@ public class ChatParser
     {
         if(message.equalsIgnoreCase("{DEFAULT}"))
         {
-            message = VChatAPI.getPlugin().getConfig().getString("format.default");
+            message = Settings.getDefaultFormat();
         }
         for(String s : replaceMap.keySet())
         {
