@@ -34,7 +34,7 @@ public class ChannelLeave extends SubCommand
         if(args.length == 0)
         {
             Channel c = ChatManager.getFocusedChannel(p);
-            ChatManager.leaveChannel(p, c);
+            ChatManager.leaveChannel(p, c, true);
             p.sendMessage(ChatColor.RED+"You have left channel "+ChatColor.translateAlternateColorCodes('&', c.getColor())+c.getName());
             return;
         }
@@ -52,7 +52,7 @@ public class ChannelLeave extends SubCommand
                 return;
             }
             
-            ChatManager.leaveChannel(p, args[0]);
+            ChatManager.leaveChannel(p, args[0], true);
             Channel c = ChatManager.getChannel(args[0]);
             p.sendMessage(ChatColor.RED+"You have left channel "+ChatColor.translateAlternateColorCodes('&', c.getColor())+c.getName());
         }
