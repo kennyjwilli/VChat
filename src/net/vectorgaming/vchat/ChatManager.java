@@ -4,6 +4,7 @@ package net.vectorgaming.vchat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import net.vectorgaming.vchat.framework.channel.Channel;
+import net.vectorgaming.vchat.framework.channel.SLChannel;
 import org.bukkit.entity.Player;
 
 /**
@@ -15,7 +16,6 @@ public class ChatManager
     private static HashMap<String, Channel> channels = new HashMap<>();
     private static HashMap<Player, Channel> focusedChannel = new HashMap<>();
     private static HashMap<Player, ArrayList<Channel>> joinedChannels = new HashMap<>();
-    private static String defaultChannel = VChatAPI.getPlugin().getConfig().getString("default-channel");
     
     /**
      * Gets a channel from the specified name
@@ -78,24 +78,6 @@ public class ChatManager
     }
     
     /**
-     * Returns the default channel that the plugin should focus a player on when it is 
-     * given no other instructions on where to focus the player to
-     * @return Default channel to foucs
-     */
-    public static Channel getDefaultFocusChannel()
-    {
-        if(!channelExists(defaultChannel))
-        {
-            if(getChannels().isEmpty())
-            {
-                return null;
-            }
-            return getChannels().get(0);
-        }
-        return getChannel(defaultChannel);
-    }
-    
-    /**
      * Joins a player to a channel so he/she can receive messages from that channel
      * @param p Player to add to the channel
      * @param channel Name of the channel to add
@@ -118,6 +100,11 @@ public class ChatManager
             temp.add(ch);
             joinedChannels.put(p, temp);
         }
+        if(ch instanceof SLChannel)
+        {
+            ch = (SLChannel) ch;
+            ch.addPlayer(p);
+        }
     }
     
     /**
@@ -131,27 +118,37 @@ public class ChatManager
      * Removes a player from a channel so they no longer receive messages from that channel
      * @param p Player to leave the channel
      * @param channel Name of the channel being left
+     * @param permanent Should the player be permanently remove from the channel? If the channel is
+     * a SL channel then the player will be removed from the lists stored in the players.yml for the channel
      */
-    public static void leaveChannel(Player p, String channel)
+    public static void leaveChannel(Player p, String channel, boolean permanent)
     {
         ArrayList<Channel> list = joinedChannels.get(p);
         Channel ch = getChannel(channel);
-        ch.removePlayer(p);
         if(list.contains(ch))
             list.remove(ch);
         joinedChannels.put(p, list);
         if(focusedChannel.get(p) == ch)
             focusedChannel.remove(p);
+        if(ch instanceof SLChannel && permanent)
+        {
+            ((SLChannel) ch).removePlayerTemp(p);
+        }else
+        {
+            ch.removePlayer(p);
+        }
     }
     
     /**
      * Removes a player from a channel so they no longer receive messages from that channel
      * @param p Player to leave the channel
      * @param channel Channel being left
+     * @param permanent Should the player be permanently remove from the channel? If the channel is
+     * a SL channel then the player will be removed from the lists stored in the players.yml for the channel
      */
-    public static void leaveChannel(Player p, Channel channel) 
+    public static void leaveChannel(Player p, Channel channel, boolean permanent) 
     {
-        leaveChannel(p, channel.getName());
+        leaveChannel(p, channel.getName(), permanent);
     }
     
     /**
