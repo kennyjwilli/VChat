@@ -224,4 +224,14 @@ public class ChatManager
             result.add(ch);
         return result;
     }
+    
+    /**
+     * Clears all maps that store loaded channels and joined channels
+     */
+    public static void resetChannels()
+    {
+        channels.clear();
+        focusedChannel.clear();
+        joinedChannels.clear();
+    }
 }
