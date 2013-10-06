@@ -20,17 +20,19 @@ import org.bukkit.plugin.PluginManager;
 public class VChat extends VertexPlugin
 {
     private VChatAPI api;
+    private Settings settings;
     
     @Override
     public void onEnable()
     {
         api = new VChatAPI(this);
+        settings = new Settings();
         this.saveDefaultConfig();
         setupCommands();
         setupListeners();
         registerChannels();
         SLAPI.loadAllChannels();
-        SLAPI.saveJoinedChannels();
+        SLAPI.loadJoinedChannels();
     }
 
     @Override
