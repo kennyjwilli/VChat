@@ -48,6 +48,11 @@ public class ChannelReload extends SubCommand
     {
         return 0;
     }
+    @Override
+    public Integer getMaxArgsLength()
+    {
+        return 0;
+    }
 
     @Override
     public boolean isPlayerOnlyCommand()
