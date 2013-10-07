@@ -57,6 +57,12 @@ public class ChannelCommand extends VCommand
     {
         return 0;
     }
+    
+    @Override
+    public Integer getMaxArgsLength()
+    {
+        return -1;
+    }
 
     @Override
     public boolean isPlayerOnlyCommand()
