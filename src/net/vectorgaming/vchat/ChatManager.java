@@ -7,6 +7,10 @@ import net.vectorgaming.vchat.framework.channel.Channel;
 import net.vectorgaming.vchat.framework.channel.SLChannel;
 import org.bukkit.entity.Player;
 
+/*
+Test commit!
+ */
+
 /**
  *
  * @author Kenny
