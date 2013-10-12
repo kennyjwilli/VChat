@@ -27,6 +27,7 @@ public class ChannelCommand extends VCommand
         addSubCommand(new ChannelAddPlayer());
         addSubCommand(new ChannelDelete());
         addSubCommand(new ChannelList());
+        addSubCommand(new ChannelWho());
         this.addAlias("ch");
     }
 
