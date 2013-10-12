@@ -1,6 +1,7 @@
 
 package net.vectorgaming.vchat;
 
+import info.jeppes.ZoneCore.ZoneTools;
 import net.vectorgaming.vchat.framework.channel.Channel;
 import net.vectorgaming.vchat.framework.channel.SLChannel;
 import org.bukkit.entity.Player;
@@ -52,9 +53,15 @@ public class ChatManager
     {
         //converted to object array to prevent concurrent modification
         Object[] list = getChannel(name.toLowerCase()).getPlayers().toArray();
+        Channel ch = getChannel(name);
         for(Object p : list)
         {
             ChatManager.leaveChannel((Player) p, name.toLowerCase(), true);
+        }
+
+        if(ch instanceof SLChannel)
+        {
+            ZoneTools.deleteDirectory(((SLChannel) ch).getDirectory());
         }
         channels.remove(name.toLowerCase());
     }
