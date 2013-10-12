@@ -46,6 +46,19 @@ public class ChatManager
         channels.put(name.toLowerCase(), channel);
         return channel;
     }
+
+    /**
+     * Deletes a channel
+     * @param name Name of the channel to be deleted
+     */
+    public static void deleteChannel(String name)
+    {
+        for(Player p : getChannel(name.toLowerCase()).getPlayers())
+        {
+            ChatManager.leaveChannel(p, name.toLowerCase(), true);
+        }
+        channels.remove(name.toLowerCase());
+    }
     
     /**
      * Focuses a player to a channel
