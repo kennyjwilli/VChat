@@ -31,7 +31,7 @@ public class ChannelCreate extends SubCommand
         }
         
         ChatManager.createChannel(args[0], "BASIC_CHANNEL");
-        cs.sendMessage(ChatColor.GREEN+"Successfully create channel"+argc+args[0]);
+        cs.sendMessage(ChatColor.GREEN+"Successfully create channel "+argc+args[0]);
     }
 
     @Override
