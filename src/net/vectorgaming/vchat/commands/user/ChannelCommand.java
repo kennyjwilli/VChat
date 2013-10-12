@@ -4,6 +4,7 @@ package net.vectorgaming.vchat.commands.user;
 import net.vectorgaming.vchat.VChatAPI;
 import net.vectorgaming.vchat.commands.admin.ChannelAddPlayer;
 import net.vectorgaming.vchat.commands.admin.ChannelCreate;
+import net.vectorgaming.vchat.commands.admin.ChannelDelete;
 import net.vectorgaming.vchat.commands.admin.ChannelReload;
 import net.vectorgaming.vcore.VCoreAPI;
 import net.vectorgaming.vcore.framework.commands.VCommand;
@@ -24,6 +25,7 @@ public class ChannelCommand extends VCommand
         addSubCommand(new ChannelLeave());
         addSubCommand(new ChannelReload());
         addSubCommand(new ChannelAddPlayer());
+        addSubCommand(new ChannelDelete());
         this.addAlias("ch");
     }
 
