@@ -136,10 +136,10 @@ public class ChatManager
             focusedChannel.remove(p);
         if(ch instanceof SLChannel && permanent)
         {
-            ((SLChannel) ch).removePlayerTemp(p);
+            ch.removePlayer(p);
         }else
         {
-            ch.removePlayer(p);
+            ((SLChannel) ch).removePlayerTemp(p);
         }
     }
     
