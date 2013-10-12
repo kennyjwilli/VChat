@@ -22,6 +22,7 @@ public class ChannelReload extends SubCommand
     public void run(CommandSender cs, String[] args)
     {
         SLAPI.reloadSettings();
+        SLAPI.loadJoinedPlayers();
         cs.sendMessage(ChatColor.GREEN+"Successfully reloaded VChat.");
     }
 
