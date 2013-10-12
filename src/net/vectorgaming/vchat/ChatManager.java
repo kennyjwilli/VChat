@@ -1,18 +1,12 @@
 
 package net.vectorgaming.vchat;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
 import net.vectorgaming.vchat.framework.channel.Channel;
 import net.vectorgaming.vchat.framework.channel.SLChannel;
-import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
-/*
-Test commit!
- */
+import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
