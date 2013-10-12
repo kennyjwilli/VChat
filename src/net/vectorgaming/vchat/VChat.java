@@ -35,7 +35,7 @@ public class VChat extends VertexPlugin
         registerChannels();
         SLAPI.loadAllChannels();
         SLAPI.loadJoinedChannels();
-        loadJoinedPlayers();
+        SLAPI.loadJoinedPlayers();
     }
 
     @Override
@@ -80,20 +80,5 @@ public class VChat extends VertexPlugin
     private void registerChannels()
     {
         VChatAPI.registerChannelType("BASIC_CHANNEL", new BasicChannelCreator());
-    }
-
-    private void loadJoinedPlayers()
-    {
-        for(Player p : Bukkit.getOnlinePlayers())
-        {
-            for(Channel c : ChatManager.getChannels())
-            {
-                if(c instanceof SLChannel)
-                {
-                    if(((SLChannel) c).getAllPlayers().contains(p.getName())) ChatManager.focusChannel(p, c);
-                }
-
-            }
-        }
     }
 }
