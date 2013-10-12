@@ -136,6 +136,15 @@ public abstract class SLChannel extends Channel
     {
         setAllPlayers(playersConfig.getStringList("players"));
     }
+
+    /**
+     * Gets the directory the channel is located in
+     * @return The channel directory
+     */
+    public File getDirectory()
+    {
+        return new  File(VChatAPI.getPlugin().getDataFolder()+File.separator+"channels"+File.separator+getName());
+    }
     
     /**
      * Gets the config file for the channel
