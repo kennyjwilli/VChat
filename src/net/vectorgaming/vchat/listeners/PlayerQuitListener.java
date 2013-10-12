@@ -19,6 +19,8 @@ public class PlayerQuitListener implements Listener
     public void onQuit(PlayerQuitEvent event)
     {
         Player p = event.getPlayer();
+
+        if(ChatManager.getJoinedChannels(p).isEmpty()) return;
         
         for(Channel c : ChatManager.getJoinedChannels(p))
         {
