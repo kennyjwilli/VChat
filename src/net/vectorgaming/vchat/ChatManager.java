@@ -3,8 +3,11 @@ package net.vectorgaming.vchat;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+
 import net.vectorgaming.vchat.framework.channel.Channel;
 import net.vectorgaming.vchat.framework.channel.SLChannel;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 /*
@@ -53,9 +56,11 @@ public class ChatManager
      */
     public static void deleteChannel(String name)
     {
-        for(Player p : getChannel(name.toLowerCase()).getPlayers())
+        //converted to object array to prevent concurrent modification
+        Object[] list = getChannel(name.toLowerCase()).getPlayers().toArray();
+        for(Object p : list)
         {
-            ChatManager.leaveChannel(p, name.toLowerCase(), true);
+            ChatManager.leaveChannel((Player) p, name.toLowerCase(), true);
         }
         channels.remove(name.toLowerCase());
     }
@@ -149,10 +154,16 @@ public class ChatManager
             focusedChannel.remove(p);
         if(ch instanceof SLChannel && permanent)
         {
-            ch.removePlayer(p);
+            if(permanent)
+            {
+                ch.removePlayer(p);
+            }else
+            {
+                ((SLChannel) ch).removePlayerTemp(p);
+            }
         }else
         {
-            ((SLChannel) ch).removePlayerTemp(p);
+            ch.removePlayer(p);
         }
     }
     
