@@ -9,6 +9,8 @@ import net.vectorgaming.vchat.VChatAPI;
 import net.vectorgaming.vchat.framework.channel.SLChannel;
 import net.vectorgaming.vchat.framework.channel.Channel;
 import net.vectorgaming.vchat.framework.enums.ChatDirectory;
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
 /**
@@ -105,5 +107,23 @@ public class SLAPI
         loadAllChannels();
         loadJoinedChannels();
         loadDefaultConfig();
+    }
+
+    /**
+     * Joins all players who are currently active on the server to any channels saved to file
+     */
+    public static void loadJoinedPlayers()
+    {
+        for(Player p : Bukkit.getOnlinePlayers())
+        {
+            for(Channel c : ChatManager.getChannels())
+            {
+                if(c instanceof SLChannel)
+                {
+                    if(((SLChannel) c).getAllPlayers().contains(p.getName())) ChatManager.focusChannel(p, c);
+                }
+
+            }
+        }
     }
 }
