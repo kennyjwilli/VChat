@@ -37,7 +37,7 @@ public class ChannelAddPlayer extends SubCommand
         {
             if(args.length != 2 && args.length == 1)
             {
-                if(ChatManager.getJoinedChannels(p).isEmpty())
+                if(ChatManager.getJoinedChannels(p) == null || ChatManager.getJoinedChannels(p).isEmpty())
                 {
                     sendErrorMessage(cs, "You are not currently joined to any channels. Provide a channel argument to use this command.");
                     return;
