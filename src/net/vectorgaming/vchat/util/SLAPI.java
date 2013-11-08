@@ -93,6 +93,7 @@ public class SLAPI
         plugin.reloadConfig();
         
         Settings.setDefaultFormat(plugin.getConfig().getString("format.default"));
+        Settings.setFacitonReplacement(plugin.getConfig().getString("parse-faction"));
         Settings.setLogChat(plugin.getConfig().getBoolean("log-chat"));
     }
     
