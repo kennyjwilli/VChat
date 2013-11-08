@@ -1,5 +1,5 @@
 format:
-  default: '&0[%color%%nick%&0]%faction%&0[%suffix%%prefix%&0][%suffix%%displayname%&0]%color% %message%'
+  default: '&0[%color%%nick%&0]%faction%&0[%pcolor%%prefix%&0][%pcolor%%displayname%&0]%color% %message%'
   parse-faction: '[&f%ftag%&0]'
 default-channel: Global
 log-chat: true
