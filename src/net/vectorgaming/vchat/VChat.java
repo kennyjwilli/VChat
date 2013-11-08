@@ -1,8 +1,6 @@
 package net.vectorgaming.vchat;
 
 import net.vectorgaming.vchat.commands.user.ChannelCommand;
-import net.vectorgaming.vchat.framework.channel.Channel;
-import net.vectorgaming.vchat.framework.channel.SLChannel;
 import net.vectorgaming.vchat.framework.channel.type.BasicChannelCreator;
 import net.vectorgaming.vchat.listeners.ChatListener;
 import net.vectorgaming.vchat.listeners.PlayerJoinListener;
@@ -12,7 +10,6 @@ import net.vectorgaming.vcore.framework.VertexAPI;
 import net.vectorgaming.vcore.framework.VertexPlugin;
 import net.vectorgaming.vcore.framework.commands.CommandManager;
 import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
 
