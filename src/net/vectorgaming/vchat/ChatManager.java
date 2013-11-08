@@ -15,9 +15,9 @@ import java.util.HashMap;
  */
 public class ChatManager 
 {
-    private static HashMap<String, Channel> channels = new HashMap<>();
-    private static HashMap<Player, Channel> focusedChannel = new HashMap<>();
-    private static HashMap<Player, ArrayList<Channel>> joinedChannels = new HashMap<>();
+    private static final HashMap<String, Channel> channels = new HashMap<>();
+    private static final HashMap<Player, Channel> focusedChannel = new HashMap<>();
+    private static final HashMap<Player, ArrayList<Channel>> joinedChannels = new HashMap<>();
     
     /**
      * Gets a channel from the specified name
