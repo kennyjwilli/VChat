@@ -40,19 +40,19 @@ public class Settings
     }
     
     /**
-     * Returns the format for a faction tag
-     * @return Faction tag format
+     * Returns the replacement for the faction tag (%faction%) replacement
+     * @return Faction tag replacement
      */
-    public static String getFactionFormat()
+    public static String getFactionReplacement()
     {
         return parseFaction;
     }
     
     /**
-     * Sets the faction tag format
-     * @param format Faction tag format
+     * Sets the replacement for the faction tag (%faction%) replacement
+     * @param format Replacement for %faction%
      */
-    public static void setFacitonFormat(String format)
+    public static void setFacitonReplacement(String format)
     {
         parseFaction = format;
     }
