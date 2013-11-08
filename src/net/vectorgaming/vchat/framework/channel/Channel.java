@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 import net.vectorgaming.vchat.util.ChatParser;
 import net.vectorgaming.vpromote.RankManager;
-import org.bukkit.ChatColor;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
 
@@ -161,9 +160,9 @@ public abstract class Channel
      * Gets the color of the channel
      * @return Color of the channel
      */
-    public String getColor() 
+    public String getColor()
     {
-        return ChatColor.translateAlternateColorCodes('&', color);
+        return color;
     }
 
     /**
