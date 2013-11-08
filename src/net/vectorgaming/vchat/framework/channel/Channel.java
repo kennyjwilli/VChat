@@ -1,8 +1,12 @@
 
 package net.vectorgaming.vchat.framework.channel;
 
+import com.massivecraft.factions.FPlayer;
+import com.massivecraft.factions.FPlayers;
+import com.massivecraft.factions.Factions;
 import java.util.ArrayList;
 import java.util.List;
+import net.vectorgaming.vchat.Settings;
 import net.vectorgaming.vchat.util.ChatParser;
 import net.vectorgaming.vpromote.RankManager;
 import org.bukkit.World;
@@ -319,5 +323,19 @@ public abstract class Channel
         chatParser.addReplaceString("prefix", RankManager.getPlayerChatRank(p.getName()));
         chatParser.addReplaceString("world", p.getWorld().getName());
         chatParser.addReplaceString("message", message);
+        /*
+        Factions formatting
+        */
+        FPlayer fp = FPlayers.i.get(p);
+        if(!fp.hasFaction())
+        {
+            chatParser.addReplaceString("faction", "");
+        }else
+        {
+            chatParser.addReplaceString("faction", Settings.getFactionReplacement());
+            //Faction color does not work because you need recipient of each message. VChat does not 
+            //support that at this time.
+            chatParser.addReplaceString("ftag", fp.getChatTag());
+        }
     }
 }
