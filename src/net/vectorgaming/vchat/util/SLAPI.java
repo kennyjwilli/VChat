@@ -60,7 +60,7 @@ public class SLAPI
             return;
         }
         
-        for(File f : new File(ChatDirectory.CHANNELS).listFiles())
+        for(File f : directory.listFiles())
         {
             ZoneConfig config = new ZoneConfig(VChatAPI.getPlugin(), new File(f.getAbsolutePath()+File.separator+"config.yml"));
             String name = config.getString("name");
