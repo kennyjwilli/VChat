@@ -4,6 +4,7 @@ package net.vectorgaming.vchat.framework.channel;
 import java.util.ArrayList;
 import java.util.List;
 import net.vectorgaming.vchat.util.ChatParser;
+import net.vectorgaming.vpromote.RankManager;
 import org.bukkit.ChatColor;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
@@ -315,8 +316,8 @@ public abstract class Channel
         chatParser.addReplaceString("nick", getNick());
         chatParser.addReplaceString("player", p.getName());
         chatParser.addReplaceString("displayname", p.getDisplayName());
-        chatParser.addReplaceString("prefix", "");
-        chatParser.addReplaceString("suffix", "");
+        chatParser.addReplaceString("pcolor", RankManager.getPlayerColor(p.getName()));
+        chatParser.addReplaceString("prefix", RankManager.getPlayerChatRank(p.getName()));
         chatParser.addReplaceString("world", p.getWorld().getName());
         chatParser.addReplaceString("message", message);
     }
