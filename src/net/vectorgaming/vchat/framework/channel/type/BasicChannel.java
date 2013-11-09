@@ -19,12 +19,12 @@ public class BasicChannel extends SLChannel
     public void onChat(Player player, String message)
     {
         super.onChat(player, message);
-        
+        String formatted = this.getChatParser().replaceAll(getFormat());
         if(getWorlds().isEmpty())
         {
             for(Player p : getPlayers())
             {
-                p.sendMessage(this.getChatParser().replaceAll(getFormat()));
+                p.sendMessage(formatted);
             }
         }else
         {
@@ -32,7 +32,7 @@ public class BasicChannel extends SLChannel
             {
                 if(getWorlds().contains(p.getWorld()))
                 {
-                    p.sendMessage(this.getChatParser().replaceAll(getFormat()));
+                    p.sendMessage(formatted);
                 }
             }
         }
