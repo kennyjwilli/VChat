@@ -146,7 +146,7 @@ public class ChatManager
      */
     public static void leaveChannel(Player p, String channel, boolean permanent)
     {
-        ArrayList<Channel> list = joinedChannels.get(p);
+        ArrayList<Channel> list = getJoinedChannels(p);
         Channel ch = getChannel(channel);
         if(list.contains(ch))
             list.remove(ch);
