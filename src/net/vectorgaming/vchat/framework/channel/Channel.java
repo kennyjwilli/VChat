@@ -3,7 +3,6 @@ package net.vectorgaming.vchat.framework.channel;
 
 import com.massivecraft.factions.FPlayer;
 import com.massivecraft.factions.FPlayers;
-import com.massivecraft.factions.Factions;
 import java.util.ArrayList;
 import java.util.List;
 import net.vectorgaming.vchat.Settings;
@@ -299,6 +298,15 @@ public abstract class Channel
     public void onChat(final Player p, final String message)
     {
         setupParsing(p, message);
+    }
+    
+    /**
+     * Sends a message to all players in the channel
+     * @param message Message to be sent to the players
+     */
+    public void sendChannelMessage(String message)
+    {
+        for(Player p : getPlayers()) p .sendMessage(message);
     }
     
     /**
