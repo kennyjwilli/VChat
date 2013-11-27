@@ -18,6 +18,7 @@ public class ChannelJoin extends SubCommand
     public ChannelJoin()
     {
         super("join", VChatAPI.getPlugin());
+        addAlias("j");
     }
     
     @Override
