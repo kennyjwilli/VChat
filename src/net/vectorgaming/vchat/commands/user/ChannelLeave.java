@@ -18,6 +18,7 @@ public class ChannelLeave extends SubCommand
     public ChannelLeave()
     {
         super("leave", VChatAPI.getPlugin());
+        addAlias("l");
     }
     
     @Override
