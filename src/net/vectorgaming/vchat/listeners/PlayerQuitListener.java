@@ -1,6 +1,7 @@
 
 package net.vectorgaming.vchat.listeners;
 
+import java.util.ArrayList;
 import net.vectorgaming.vchat.ChatManager;
 import net.vectorgaming.vchat.framework.channel.Channel;
 import net.vectorgaming.vchat.framework.channel.SLChannel;
@@ -27,7 +28,7 @@ public class PlayerQuitListener implements Listener
 
         if(ChatManager.getJoinedChannels(p).isEmpty()) return;
         
-        for(Channel c : ChatManager.getJoinedChannels(p))
+        for(Channel c : (ArrayList<Channel>)ChatManager.getJoinedChannels(p).clone())
         {
             if(c instanceof SLChannel)
             {
