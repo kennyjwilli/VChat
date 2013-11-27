@@ -20,13 +20,26 @@ public class ChatManager
     private static final HashMap<Player, ArrayList<Channel>> joinedChannels = new HashMap<>();
     
     /**
-     * Gets a channel from the specified name
-     * @param name Name of the channel
-     * @return Channel object
+     * Gets a channel from the specified name or nickname
+     * @param name Name or nickname of the channel
+     * @return Null if the channel cannot be found
      */
     public static Channel getChannel(String name) 
     {
-        return channels.get(name.toLowerCase());
+        if(channels.containsKey(name))
+        {
+            return channels.get(name);
+        }else
+        {
+            for(Channel ch : channels.values())
+            {
+                if(ch.getNick().equalsIgnoreCase(name))
+                {
+                    return ch;
+                }
+            }
+            return null;
+        }
     }
     
     /**
@@ -197,7 +210,7 @@ public class ChatManager
      */
     public static boolean channelExists(String channel)
     {
-        return channels.containsKey(channel.toLowerCase());
+        return getChannel(channel) != null;
     }
     
     /**
