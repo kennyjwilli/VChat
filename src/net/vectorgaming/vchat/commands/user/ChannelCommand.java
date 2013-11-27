@@ -1,12 +1,16 @@
 
 package net.vectorgaming.vchat.commands.user;
 
+import net.vectorgaming.vchat.ChatManager;
 import net.vectorgaming.vchat.VChatAPI;
 import net.vectorgaming.vchat.commands.admin.*;
+import net.vectorgaming.vchat.framework.channel.Channel;
 import net.vectorgaming.vcore.VCoreAPI;
 import net.vectorgaming.vcore.framework.commands.VCommand;
+import net.vectorgaming.vpromote.commands.CommandManager;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 
 /**
  *
@@ -32,10 +36,21 @@ public class ChannelCommand extends VCommand
     @Override
     public void run(CommandSender cs, String[] args)
     {
-        cs.sendMessage(VCoreAPI.getColorScheme().getTitleBar("VChat Help"));
-        cs.sendMessage(ChatColor.GREEN+"Type "+VCoreAPI.getColorScheme().getArgumentColor()+"/ch help "+ChatColor.GREEN+"for a list of commands.");
-    
-        //joining of channels without args below
+        if(args.length == 0)
+        {
+            cs.sendMessage(VCoreAPI.getColorScheme().getTitleBar("VChat Help"));
+            cs.sendMessage(ChatColor.GREEN+"Type "+VCoreAPI.getColorScheme().getArgumentColor()+"/ch help "+ChatColor.GREEN+"for a list of commands.");
+            return;
+        }
+
+        if(ChatManager.channelExists(args[0]))
+        {
+            Channel channel = ChatManager.getChannel(args[0]);
+            ChatManager.focusChannel((Player) cs, args[0]);
+            cs.sendMessage(ChatColor.translateAlternateColorCodes('&', ChatColor.GREEN+"Focused on "+channel.getColor()+channel.getName()));
+            return;
+        }
+        cs.sendMessage(ChatColor.RED+"Unrecognized argument.");
     }
 
     @Override
@@ -71,7 +86,7 @@ public class ChannelCommand extends VCommand
     @Override
     public boolean isPlayerOnlyCommand()
     {
-        return false;
+        return true;
     }
 
 }
