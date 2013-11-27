@@ -36,21 +36,15 @@ public class ChannelCommand extends VCommand
     @Override
     public void run(CommandSender cs, String[] args)
     {
-        if(args.length == 0)
-        {
-            cs.sendMessage(VCoreAPI.getColorScheme().getTitleBar("VChat Help"));
-            cs.sendMessage(ChatColor.GREEN+"Type "+VCoreAPI.getColorScheme().getArgumentColor()+"/ch help "+ChatColor.GREEN+"for a list of commands.");
-            return;
-        }
-
-        if(ChatManager.channelExists(args[0]))
+        if(args.length != 0 && ChatManager.channelExists(args[0]))
         {
             Channel channel = ChatManager.getChannel(args[0]);
             ChatManager.focusChannel((Player) cs, args[0]);
             cs.sendMessage(ChatColor.translateAlternateColorCodes('&', ChatColor.GREEN+"Focused on "+channel.getColor()+channel.getName()));
             return;
         }
-        cs.sendMessage(ChatColor.RED+"Unrecognized argument.");
+        cs.sendMessage(VCoreAPI.getColorScheme().getTitleBar("VChat Help"));
+        cs.sendMessage(ChatColor.GREEN+"Type "+VCoreAPI.getColorScheme().getArgumentColor()+"/ch help "+ChatColor.GREEN+"for a list of commands.");
     }
 
     @Override
