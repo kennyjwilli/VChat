@@ -3,7 +3,9 @@ package net.vectorgaming.vchat.listeners;
 
 import net.arcanerealm.arcanelib.ArcaneTools;
 import net.vectorgaming.vchat.ChatManager;
+import net.vectorgaming.vchat.Settings;
 import net.vectorgaming.vchat.framework.channel.Channel;
+import net.vectorgaming.vchat.util.ChatLogger;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -32,7 +34,15 @@ public class ChatListener implements Listener
         Channel channel = ChatManager.getFocusedChannel(p);
         try
         {
-            channel.onChat(p, event.getMessage());
+            String message = channel.onChat(p, event.getMessage());
+            if(channel.isVerbose())
+            {
+                ChatLogger.logToConsole(message);
+            }
+            if(Settings.isLogChat())
+            {
+                ChatLogger.logToFile(message);
+            }
         }catch(Exception e)
         {
             p.sendMessage(ChatColor.RED+"Uh oh! There seems to be a problem with the chat. "
