@@ -11,7 +11,7 @@ import org.bukkit.ChatColor;
  */
 public class ChatParser 
 {
-    private HashMap<String, String> replaceMap = new HashMap<>();
+    private final HashMap<String, String> replaceMap = new HashMap<>();
     
     public void addReplaceString(String original, String replace)
     {
