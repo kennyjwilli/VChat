@@ -16,7 +16,7 @@ public class BasicChannel extends SLChannel
     }
     
     @Override
-    public void onChat(Player player, String message)
+    public String onChat(Player player, String message)
     {
         super.onChat(player, message);
         String formatted = this.getChatParser().replaceAll(getFormat());
@@ -36,6 +36,7 @@ public class BasicChannel extends SLChannel
                 }
             }
         }
+        return formatted;
     }
 
 }
