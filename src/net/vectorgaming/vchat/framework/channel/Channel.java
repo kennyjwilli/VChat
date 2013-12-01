@@ -294,10 +294,12 @@ public abstract class Channel
      * Called whenever a player chats 
      * @param p Name of the player sent a chat message
      * @param message The message that the player sent
+     * @return The formatted chat message
      */
-    public void onChat(final Player p, final String message)
+    public String onChat(final Player p, final String message)
     {
         setupParsing(p, message);
+        return "<"+p.getName()+"> "+message;
     }
     
     /**
