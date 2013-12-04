@@ -6,6 +6,3 @@ website: http://vectorgaming.net
 description: A channel based chat plugin
 
 depend: [VCore, ZoneCore, ZoneWorld]
-
-commands:
-  
