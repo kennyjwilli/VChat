@@ -35,13 +35,11 @@ public class ChatLogger
      */
     public static void logToFile(String message)
     {
+        new File(VChatAPI.getPlugin().getDataFolder()+File.separator+"logs").mkdirs();
         File logFile = new File(VChatAPI.getPlugin().getDataFolder()+File.separator+"logs"+File.separator+"log.txt");
         try
         {
-            if(!logFile.exists())
-            {
-                logFile.createNewFile();
-            }
+            logFile.createNewFile();
         } catch (IOException ex){}
         DateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy hh:mm:ss");
         String formatted = dateFormat.format(new Date())+" "+message;
