@@ -31,8 +31,16 @@ public class ChannelJoin extends SubCommand
             this.sendErrorMessage(cs, "Channel "+ChatColor.YELLOW+args[0]+ChatColor.RED+" does not exist.");
             return;
         }
+        
         Channel channel = ChatManager.getChannel(args[0]);
-        ChatManager.focusChannel(p, args[0]);
+        
+        if(!cs.hasPermission("vchat.join."+channel.getName()) && !cs.hasPermission("vchat.join.*"))
+        {
+            cs.sendMessage(ChatColor.RED+"You do not have permission to join " + ChatColor.YELLOW+channel.getName()+ChatColor.RED + ".");
+            return;
+        }
+        
+        ChatManager.focusChannel(p, channel.getName());
         cs.sendMessage(ChatColor.translateAlternateColorCodes('&', ChatColor.GREEN+"Focused on "+channel.getColor()+channel.getName()));
     }
 
