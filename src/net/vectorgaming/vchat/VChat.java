@@ -2,6 +2,7 @@ package net.vectorgaming.vchat;
 
 import net.vectorgaming.vchat.commands.user.ChannelCommand;
 import net.vectorgaming.vchat.framework.channel.type.BasicChannelCreator;
+import net.vectorgaming.vchat.framework.channel.type.FactionsChannelCreator;
 import net.vectorgaming.vchat.listeners.ChatListener;
 import net.vectorgaming.vchat.listeners.PlayerJoinListener;
 import net.vectorgaming.vchat.listeners.PlayerQuitListener;
@@ -70,5 +71,6 @@ public class VChat extends VertexPlugin
     private void registerChannels()
     {
         VChatAPI.registerChannelType("BASIC_CHANNEL", new BasicChannelCreator());
+        VChatAPI.registerChannelType("FACTIONS", new FactionsChannelCreator());
     }
 }
