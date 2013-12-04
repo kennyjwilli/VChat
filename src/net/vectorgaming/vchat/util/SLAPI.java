@@ -62,7 +62,7 @@ public class SLAPI
         
         for(File f : directory.listFiles())
         {
-            ZoneConfig config = new ZoneConfig(VChatAPI.getPlugin(), new File(f.getAbsolutePath()+File.separator+"config.yml"));
+            ZoneConfig config = new ZoneConfig(VChatAPI.getPlugin(), new File(f.getAbsolutePath()+File.separator+"channel-settings.yml"));
             String name = config.getString("name");
             String type = config.getString("type").toUpperCase();
             ((SLChannel) ChatManager.createChannel(name, type)).load();
