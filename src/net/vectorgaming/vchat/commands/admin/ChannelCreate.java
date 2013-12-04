@@ -33,7 +33,7 @@ public class ChannelCreate extends SubCommand
         
         if(!VChatAPI.channelTypeExists(args[1].toUpperCase()))
         {
-            sendErrorMessage(cs, "Channel type "+argc+args[0]+ChatColor.RED+" does not exist.");
+            sendErrorMessage(cs, "Channel type "+argc+args[1]+ChatColor.RED+" does not exist.");
             cs.sendMessage(ChatColor.DARK_BLUE+"Avaliable types: "+ArcaneTools.convertListToString(VChatAPI.getChannelTypes(), true));
             return;
         }
