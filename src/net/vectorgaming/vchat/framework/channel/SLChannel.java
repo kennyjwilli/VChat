@@ -20,14 +20,25 @@ public abstract class SLChannel extends Channel
     private List<String> allPlayers = new ArrayList<>();
     
     //Configs
-    private ZoneConfig config;
-    private ZoneConfig playersConfig;
+    private final ZoneConfig config;
+    private final ZoneConfig playersConfig;
     
     public SLChannel(String name, String type) 
     {
         super(name, type);
-        config = new ZoneConfig(VChatAPI.getPlugin().getPlugin(), new File(ChatDirectory.CHANNELS+File.separator+name+File.separator+"config.yml"));
+        config = new ZoneConfig(VChatAPI.getPlugin().getPlugin(), new File(ChatDirectory.CHANNELS+File.separator+name+File.separator+"channel-settings.yml"));
         playersConfig = new ZoneConfig(VChatAPI.getPlugin(), new File(ChatDirectory.CHANNELS+File.separator+name+File.separator+"players.yml"));
+        
+        config.set("name", getName());
+        config.set("nick", getNick());
+        config.set("color", getColor());
+        config.set("format", getFormat());
+        config.set("password", getPassword());
+        config.set("type", getType().toUpperCase());
+        config.set("verbose", isVerbose());
+        config.set("forcejoin", isForceJoin());
+        config.set("worlds", getWorlds());
+        config.save();
     }
     
     @Override
