@@ -3,17 +3,26 @@ package net.vectorgaming.vchat;
 
 import java.util.HashMap;
 import net.vectorgaming.vchat.framework.channel.ChannelCreator;
-import net.vectorgaming.vcore.framework.VertexAPI;
+import net.vectorgaming.vcore.framework.VertexPlugin;
 
 /**
  *
  * @author Kenny
  */
-public class VChatAPI extends VertexAPI
+public class VChatAPI
 {
     private static HashMap<String, ChannelCreator> creator = new HashMap<>();
+    private static VChat plugin;
     
-    public VChatAPI(VChat instance) {super(instance);}
+    public VChatAPI(VChat instance) 
+    {
+        plugin = instance;
+    }
+    
+    public static VertexPlugin getPlugin()
+    {
+        return plugin;
+    }
     
     public static void registerChannelType(String type, ChannelCreator creator)
     {
