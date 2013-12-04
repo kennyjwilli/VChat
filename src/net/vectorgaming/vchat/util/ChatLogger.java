@@ -10,6 +10,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import net.arcanerealm.arcanelib.ArcaneTools;
 import net.vectorgaming.vchat.VChatAPI;
 import org.bukkit.Bukkit;
 
@@ -42,7 +43,7 @@ public class ChatLogger
             logFile.createNewFile();
         } catch (IOException ex){}
         DateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy hh:mm:ss");
-        String formatted = dateFormat.format(new Date())+" "+message;
+        String formatted = dateFormat.format(new Date())+" "+ArcaneTools.removeColorCodes(message);
         BufferedWriter writer;
         try
         {
