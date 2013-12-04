@@ -1,6 +1,7 @@
 
 package net.vectorgaming.vchat.commands.admin;
 
+import net.arcanerealm.arcanelib.ArcaneTools;
 import net.vectorgaming.vchat.ChatManager;
 import net.vectorgaming.vchat.VChatAPI;
 import net.vectorgaming.vcore.VCoreAPI;
@@ -30,7 +31,14 @@ public class ChannelCreate extends SubCommand
             return;
         }
         
-        ChatManager.createChannel(args[0], "BASIC_CHANNEL");
+        if(!VChatAPI.channelTypeExists(args[1].toUpperCase()))
+        {
+            sendErrorMessage(cs, "Channel type "+argc+args[0]+ChatColor.RED+" does not exist.");
+            cs.sendMessage(ChatColor.DARK_BLUE+"Avaliable types: "+ArcaneTools.convertListToString(VChatAPI.getChannelTypes(), true));
+            return;
+        }
+        
+        ChatManager.createChannel(args[0], args[1].toUpperCase());
         cs.sendMessage(ChatColor.GREEN+"Successfully create channel "+argc+args[0]);
     }
 
@@ -43,7 +51,7 @@ public class ChannelCreate extends SubCommand
     @Override
     public String getUsage()
     {
-        return "/ch create <channel> [<params>]";
+        return "/ch create <channel> <type> [<params>]";
     }
 
     @Override
@@ -55,13 +63,13 @@ public class ChannelCreate extends SubCommand
     @Override
     public Integer getMinArgsLength()
     {
-        return 1;
+        return 2;
     }
     
     @Override
     public Integer getMaxArgsLength()
     {
-        return -1;
+        return 2;
     }
 
     @Override
