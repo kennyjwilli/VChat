@@ -6,7 +6,6 @@ import net.vectorgaming.vchat.listeners.ChatListener;
 import net.vectorgaming.vchat.listeners.PlayerJoinListener;
 import net.vectorgaming.vchat.listeners.PlayerQuitListener;
 import net.vectorgaming.vchat.util.SLAPI;
-import net.vectorgaming.vcore.framework.VertexAPI;
 import net.vectorgaming.vcore.framework.VertexPlugin;
 import net.vectorgaming.vcore.framework.commands.CommandManager;
 import org.bukkit.Bukkit;
@@ -52,12 +51,6 @@ public class VChat extends VertexPlugin
     public Plugin getPlugin()
     {
         return this;
-    }
-
-    @Override
-    public VertexAPI getAPI()
-    {
-        return api;
     }
     
     private void setupListeners()
