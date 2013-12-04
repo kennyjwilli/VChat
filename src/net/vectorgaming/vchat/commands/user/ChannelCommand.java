@@ -39,6 +39,13 @@ public class ChannelCommand extends VCommand
         if(args.length != 0 && ChatManager.channelExists(args[0]))
         {
             Channel channel = ChatManager.getChannel(args[0]);
+            
+            if(!cs.hasPermission("vchat.join."+channel.getName()) && !cs.hasPermission("vchat.join.*"))
+            {
+                sendErrorMessage(cs, ChatColor.RED+"You do not have permission to join " + ChatColor.YELLOW+channel.getName()+ChatColor.RED + ".");
+                return;
+            }
+            
             ChatManager.focusChannel((Player) cs, args[0]);
             cs.sendMessage(ChatColor.translateAlternateColorCodes('&', ChatColor.GREEN+"Focused on "+channel.getColor()+channel.getName()));
             return;
@@ -80,7 +87,7 @@ public class ChannelCommand extends VCommand
     @Override
     public boolean isPlayerOnlyCommand()
     {
-        return true;
+        return false;
     }
 
 }
